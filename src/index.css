@@ -2,47 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+@font-face {
+	font-family: "Noto Serif";
+	src: url("../fonts/NotoSerif.ttf");
+}
+
+/* body {
 	height: 29.7cm;
-	margin: auto;
 	width: 21cm;
-	font-family: system-ui, -apple-system, blinkmacsystemfont, "segoe ui",
-		roboto, oxygen, ubuntu, cantarell, "open sans", "helvetica neue",
-		sans-serif;
+	margin: auto;
+	padding: 3.5rem;
+	font-family: "serif";
 	outline: 1px solid #000;
 }
-
-h1 {
-	font-size: 2rem;
-	font-weight: bold;
-}
-
-h2 {
-	font-size: 1.5rem;
-	font-weight: bold;
-}
-
-h3 {
-	font-size: 1.25rem;
-	font-weight: bold;
-}
-
-h4 {
-	font-size: 1rem;
-	font-weight: bold;
-}
-
-a {
-	opacity: 0.75;
-}
-
+*/
 @media print {
 	@page {
 		size: A4;
 		margin: 0;
-	}
-
-	body {
-		outline: none;
 	}
 }

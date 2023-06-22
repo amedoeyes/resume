@@ -1,21 +1,33 @@
-export default function Header() {
+import { Fragment } from "react";
+
+type HeaderProps = {
+	fistName: string;
+	lastName: string;
+	email: string;
+	phone: string;
+	links?: string[];
+};
+
+export default function Header({ fistName, lastName, email, phone, links }: HeaderProps) {
 	return (
-		<header className="flex items-center justify-between">
-			<div>
-				<h1>AHMED ABOUELEYOUN</h1>
-				<div className="flex gap-1">
-					<a href="mailto:ahmed.m.aboueleyoun@gmail.com">
-						ahmed.m.aboueleyoun@gmail.com
-					</a>
-					<span className="opacity-75">|</span>
-					<a href="tel:201002403588">+20 100 240 3588</a>
-				</div>
-			</div>
-			<div className="flex flex-col gap-1 text-sm">
-				<a href="https://github.com/amedoeyes">github.com/amedoeyes</a>
-				<a href="https://linkedin.com/in/ahmed-aboueleyoun">
-					linkedin.com/in/ahmed-aboueleyoun
-				</a>
+		<header className="flex flex-col items-center gap-1 mb-4">
+			<h1 className="text-4xl font-thin tracking-wider text-center uppercase">
+				{fistName} {lastName}
+			</h1>
+
+			<div className="flex flex-wrap justify-center gap-1 text-xs">
+				<a href={`mailto:${email}`}>{email}</a>
+				<span>-</span>
+				<a href={`tel:${phone}`}>{phone}</a>
+				<span>-</span>
+				{links &&
+					links.map((link, index) => (
+						<Fragment key={link}>
+							<a href={link}>{link.replace("https://", "")}</a>
+
+							{index === links.length - 1 ? "" : <span>-</span>}
+						</Fragment>
+					))}
 			</div>
 		</header>
 	);

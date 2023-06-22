@@ -5,16 +5,17 @@ type SkillsListProps = {
 
 export default function SkillsList({ title, skills }: SkillsListProps) {
 	return (
-		<div className="flex gap-1">
-			<h4>{title}:</h4>
-			<ul className="flex gap-1">
+		<div className="flex items-center gap-1">
+			<h4 className="text-sm font-medium">{title}:</h4>
+
+			<p className="text-sm opacity-75">
 				{skills.map((skill, index) => (
-					<li key={skill}>
+					<span key={index}>
 						{skill}
-						{index === skills.length - 1 ? "" : ","}
-					</li>
+						{index === skills.length - 1 ? "" : ", "}
+					</span>
 				))}
-			</ul>
+			</p>
 		</div>
 	);
 }

@@ -1,24 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-	font-family: "Noto Serif";
-	src: url("../fonts/NotoSerif.ttf");
-}
-
-/* body {
-	height: 29.7cm;
-	width: 21cm;
-	margin: auto;
-	padding: 3.5rem;
-	font-family: "serif";
-	outline: 1px solid #000;
-}
-*/
-@media print {
-	@page {
-		size: A4;
-		margin: 0;
-	}
-}

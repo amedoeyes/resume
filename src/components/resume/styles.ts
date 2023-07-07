@@ -1,47 +1,51 @@
 import { Font, StyleSheet } from "@react-pdf/renderer";
+import NotoSerifBlack from "../../../fonts/NotoSerif-Black.ttf";
+import NotoSerifBold from "../../../fonts/NotoSerif-Bold.ttf";
+import NotoSerifLight from "../../../fonts/NotoSerif-Light.ttf";
+import NotoSerifMedium from "../../../fonts/NotoSerif-Medium.ttf";
+import NotoSerifRegular from "../../../fonts/NotoSerif-Regular.ttf";
+import NotoSerifSemiBold from "../../../fonts/NotoSerif-SemiBold.ttf";
+import NotoSerifThin from "../../../fonts/NotoSerif-Thin.ttf";
+import NotoSerifUltraLight from "../../../fonts/NotoSerif-UltraLight.ttf";
 
 Font.register({
 	family: "NotoSerif",
 	fonts: [
 		{
-			src: "../fonts/NotoSerif-Regular.ttf",
+			src: NotoSerifRegular,
 		},
 		{
-			src: "../fonts/NotoSerif-Thin.ttf",
+			src: NotoSerifThin,
 			fontWeight: "thin",
 		},
 		{
-			src: "../fonts/NotoSerif-ExtraLight.ttf",
+			src: NotoSerifUltraLight,
 			fontWeight: "ultralight",
 		},
 		{
-			src: "../fonts/NotoSerif-Light.ttf",
+			src: NotoSerifLight,
 			fontWeight: "light",
 		},
 		{
-			src: "../fonts/NotoSerif-Medium.ttf",
+			src: NotoSerifMedium,
 			fontWeight: "medium",
 		},
 		{
-			src: "../fonts/NotoSerif-SemiBold.ttf",
+			src: NotoSerifSemiBold,
 			fontWeight: "semibold",
 		},
 		{
-			src: "../fonts/NotoSerif-Bold.ttf",
+			src: NotoSerifBold,
 			fontWeight: "bold",
 		},
 		{
-			src: "../fonts/NotoSerif-Black.ttf",
+			src: NotoSerifBlack,
 			fontWeight: "ultrabold",
 		},
 	],
 });
 
 const styles = StyleSheet.create({
-	viewer: {
-		width: "100%",
-		height: "100vh",
-	},
 	document: {
 		fontFamily: "NotoSerif",
 	},

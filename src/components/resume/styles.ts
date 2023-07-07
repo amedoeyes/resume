@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
 		opacity: 0.5,
 	},
 	link: {
+		width: "auto",
 		textDecoration: "none",
 		color: "#000",
 	},

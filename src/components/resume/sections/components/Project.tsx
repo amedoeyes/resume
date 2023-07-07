@@ -14,7 +14,9 @@ export default function Project({ title, description, stack, link }: IProject) {
 
 			<View style={styles.stack}>
 				<Text style={[styles.fs2, styles.lhalf]}>{description}</Text>
-				<Text style={[styles.fs2, styles.op1, styles.right, styles.rhalf]}>
+				<Text
+					style={[styles.fs2, styles.op1, styles.right, styles.rhalf]}
+				>
 					{stack.map((tech, index) => (
 						<Text key={index}>
 							{tech}

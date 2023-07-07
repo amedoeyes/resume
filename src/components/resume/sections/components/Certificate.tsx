@@ -21,7 +21,10 @@ export default function Certificate({
 			<View style={styles.stack}>
 				<Text style={styles.fs2}>{institution}</Text>
 				{link && (
-					<Link src={link} style={[styles.link, styles.fs2, styles.op2]}>
+					<Link
+						src={link}
+						style={[styles.link, styles.fs2, styles.op2]}
+					>
 						{link.split("/").pop()}
 					</Link>
 				)}

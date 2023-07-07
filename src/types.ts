@@ -46,7 +46,7 @@ export type IExperience = {
 	items: IJob[];
 };
 
-export type ISkill = {
+export type ISkills = {
 	title?: string;
 	items: ISkillSet[];
 };
@@ -76,7 +76,7 @@ export type ISectionsOrder = (
 
 export type ISections = {
 	experience: IExperience;
-	skills: ISkill;
+	skills: ISkills;
 	projects: IProjects;
 	certificates: ICertificates;
 	education: IEducation;

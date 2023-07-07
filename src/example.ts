@@ -128,7 +128,13 @@ const example: IResume = {
 				},
 			],
 		},
-		order: ["skills", "experience", "certificates", "education", "projects"],
+		order: [
+			"skills",
+			"experience",
+			"certificates",
+			"education",
+			"projects",
+		],
 	},
 };
 

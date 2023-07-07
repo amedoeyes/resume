@@ -1,15 +1,15 @@
-import PdfEditor from "./components/pdf_editor/PdfEditor";
 import PdfViewer from "./components/PdfViewer";
-import Resume from "./components/resume/Resume";
-import example from "./example";
+import PdfEditor from "./components/pdf_editor/PdfEditor";
 
 export default function App() {
 	return (
-		<div className="grid grid-cols-2">
-			<PdfEditor />
-			<PdfViewer
-				Resume={<Resume header={example.header} sections={example.sections} />}
-			/>
+		<div className="flex max-sm:flex-col">
+			<div className="h-screen w-full overflow-y-scroll">
+				<PdfEditor />
+			</div>
+			<div className="h-screen w-full">
+				<PdfViewer />
+			</div>
 		</div>
 	);
 }

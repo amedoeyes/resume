@@ -17,28 +17,35 @@ export default function Header({
 			</Text>
 
 			<View style={[styles.contacts, styles.fs2]}>
-				<Link src={`mailto:${email}`} style={styles.link}>
-					{email}
-				</Link>
+				{email.length > 0 && (
+					<>
+						<Link src={`mailto:${email}`} style={styles.link}>
+							{email}
+						</Link>
 
-				<Text>-</Text>
+						{(phone || links.length > 0) && <Text>-</Text>}
+					</>
+				)}
 
-				<Link src={`tel:${phone}`} style={styles.link}>
-					{phone}
-				</Link>
+				{phone.length > 0 && (
+					<>
+						<Link src={`tel:${phone}`} style={styles.link}>
+							{phone}
+						</Link>
 
-				<Text>-</Text>
+						{links.length > 0 && <Text>-</Text>}
+					</>
+				)}
 
-				{links &&
-					links.map((link, index) => (
-						<Fragment key={link}>
-							<Link src={link} style={styles.link}>
-								{link.replace("https://", "")}
-							</Link>
+				{links.map((link, index) => (
+					<Fragment key={link}>
+						<Link src={link} style={styles.link}>
+							{link.replace("https://", "")}
+						</Link>
 
-							{index === links.length - 1 ? null : <Text>-</Text>}
-						</Fragment>
-					))}
+						{index === links.length - 1 ? null : <Text>-</Text>}
+					</Fragment>
+				))}
 			</View>
 		</View>
 	);

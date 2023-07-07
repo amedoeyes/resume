@@ -1,9 +1,9 @@
-import { ISkill } from "../../../types";
+import { ISkills } from "../../../types";
 import Section from "./components/Section";
 import SkillSet from "./components/SkillSet";
 
 type SkillsProps = {
-	skills: ISkill;
+	skills: ISkills;
 };
 
 export default function Skills({ skills }: SkillsProps) {

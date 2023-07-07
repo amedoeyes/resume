@@ -20,12 +20,22 @@ export default function Sections({ sections }: SectionsOrderProps) {
 				switch (section) {
 					case "experience":
 						return (
-							<Experience key={section} experience={sections.experience} />
+							<Experience
+								key={section}
+								experience={sections.experience}
+							/>
 						);
 					case "skills":
-						return <Skills key={section} skills={sections.skills} />;
+						return (
+							<Skills key={section} skills={sections.skills} />
+						);
 					case "projects":
-						return <Projects key={section} projects={sections.projects} />;
+						return (
+							<Projects
+								key={section}
+								projects={sections.projects}
+							/>
+						);
 					case "certificates":
 						return (
 							<Certificates
@@ -34,7 +44,12 @@ export default function Sections({ sections }: SectionsOrderProps) {
 							/>
 						);
 					case "education":
-						return <Education key={section} education={sections.education} />;
+						return (
+							<Education
+								key={section}
+								education={sections.education}
+							/>
+						);
 				}
 			})}
 		</View>

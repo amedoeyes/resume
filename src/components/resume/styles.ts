@@ -1,12 +1,12 @@
 import { Font, StyleSheet } from "@react-pdf/renderer";
 import NotoSerifBlack from "../../../fonts/NotoSerif-Black.ttf";
 import NotoSerifBold from "../../../fonts/NotoSerif-Bold.ttf";
+import NotoSerifUltraLight from "../../../fonts/NotoSerif-ExtraLight.ttf";
 import NotoSerifLight from "../../../fonts/NotoSerif-Light.ttf";
 import NotoSerifMedium from "../../../fonts/NotoSerif-Medium.ttf";
 import NotoSerifRegular from "../../../fonts/NotoSerif-Regular.ttf";
 import NotoSerifSemiBold from "../../../fonts/NotoSerif-SemiBold.ttf";
 import NotoSerifThin from "../../../fonts/NotoSerif-Thin.ttf";
-import NotoSerifUltraLight from "../../../fonts/NotoSerif-UltraLight.ttf";
 
 Font.register({
 	family: "NotoSerif",

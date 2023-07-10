@@ -14,39 +14,37 @@ type SectionsOrderProps = {
 export default function Sections({ sections }: SectionsOrderProps) {
 	return (
 		<View style={styles.sections}>
-			{sections.order.map((section) => {
+			{sections.order.map((section, index) => {
 				if (sections[section].items.length === 0) return <></>;
 
 				switch (section) {
 					case "experience":
 						return (
 							<Experience
-								key={section}
+								key={index}
 								experience={sections.experience}
 							/>
 						);
 					case "skills":
-						return (
-							<Skills key={section} skills={sections.skills} />
-						);
+						return <Skills key={index} skills={sections.skills} />;
 					case "projects":
 						return (
 							<Projects
-								key={section}
+								key={index}
 								projects={sections.projects}
 							/>
 						);
 					case "certificates":
 						return (
 							<Certificates
-								key={section}
+								key={index}
 								certificates={sections.certificates}
 							/>
 						);
 					case "education":
 						return (
 							<Education
-								key={section}
+								key={index}
 								education={sections.education}
 							/>
 						);

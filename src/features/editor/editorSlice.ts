@@ -89,4 +89,5 @@ export const {
 	setProjects,
 	setCertificates,
 	setEducation,
+	setSectionsOrder,
 } = editorSlice.actions;

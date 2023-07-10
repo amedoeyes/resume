@@ -129,11 +129,11 @@ const example: IResume = {
 			],
 		},
 		order: [
+			"projects",
 			"skills",
 			"experience",
 			"certificates",
 			"education",
-			"projects",
 		],
 	},
 };

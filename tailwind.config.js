@@ -4,7 +4,7 @@ export default {
 	darkMode: "class",
 	theme: {
 		fontFamily: {
-			sans: ["Roboto", "sans-serif"],
+			sans: ["Roboto"],
 		},
 		extend: {
 			colors: {
@@ -13,4 +13,5 @@ export default {
 			},
 		},
 	},
+	plugins: [require("@headlessui/tailwindcss")],
 };

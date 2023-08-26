@@ -12,7 +12,7 @@
 	--secondary: 255 255 255;
 }
 
-[data-theme="dark"] {
+.dark {
 	--primary: 255 255 255;
 	--secondary: 0 0 0;
 }

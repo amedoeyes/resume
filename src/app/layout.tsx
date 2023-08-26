@@ -13,10 +13,10 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
-		<Providers>
-			<html lang="en">
-				<body>{children}</body>
-			</html>
-		</Providers>
+		<html lang="en">
+			<body className="bg-secondary">
+				<Providers>{children}</Providers>
+			</body>
+		</html>
 	);
 }

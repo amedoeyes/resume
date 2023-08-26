@@ -1,5 +1,4 @@
 import { Resume } from "@/types";
-import getFromStorage from "@/util/getFromStorage";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState: Resume = {
@@ -47,19 +46,17 @@ const initialState: Resume = {
 	],
 };
 
-const resume = getFromStorage("resume", initialState);
-
 const resumeSlice = createSlice({
 	name: "resume",
-	initialState: resume,
+	initialState,
 	reducers: {
 		setResume: (state, action: PayloadAction<Resume>) => {
 			state = action.payload;
 			window.localStorage.setItem("resume", JSON.stringify(state));
+			return state;
 		},
 	},
 });
 
 export default resumeSlice.reducer;
-
 export const { setResume } = resumeSlice.actions;

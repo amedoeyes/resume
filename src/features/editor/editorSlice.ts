@@ -6,7 +6,6 @@ import {
 	Sections,
 	SectionsOrder,
 } from "@/types";
-import getFromStorage from "@/util/getFromStorage";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState: Resume = {
@@ -54,17 +53,21 @@ const initialState: Resume = {
 	],
 };
 
-const resume = getFromStorage("resume", initialState);
-
 const editorSlice = createSlice({
 	name: "editor",
-	initialState: resume,
+	initialState,
 	reducers: {
+		setEditorResume: (state, action: PayloadAction<Resume>) => {
+			state = action.payload;
+			return state;
+		},
 		setHeader: (state, action: PayloadAction<Header>) => {
 			state.header = action.payload;
+			return state;
 		},
 		setMeta: (state, action: PayloadAction<Meta>) => {
 			state.meta = action.payload;
+			return state;
 		},
 		setSection: (
 			state,
@@ -75,14 +78,21 @@ const editorSlice = createSlice({
 		) => {
 			const { section, data } = action.payload;
 			state.sections[section] = data;
+			return state;
 		},
 		setSectionsOrder: (state, action: PayloadAction<SectionsOrder>) => {
 			state.sectionsOrder = action.payload;
+			return state;
 		},
 	},
 });
 
 export default editorSlice.reducer;
 
-export const { setHeader, setMeta, setSection, setSectionsOrder } =
-	editorSlice.actions;
+export const {
+	setEditorResume,
+	setHeader,
+	setMeta,
+	setSection,
+	setSectionsOrder,
+} = editorSlice.actions;

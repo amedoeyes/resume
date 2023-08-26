@@ -69,11 +69,11 @@ export type Sections = {
 	projects: Section<ProjectsItem>;
 	certificates: Section<CertificatesItem>;
 	education: Section<EducationItem>;
-	order: SectionsOrder;
 };
 
 export type Resume = {
 	header: Header;
 	meta: Meta;
 	sections: Sections;
+	sectionsOrder: SectionsOrder;
 };

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSectionsOrder } from "../../features/editor/editorSlice";
 import { AppDispatch, RootState } from "../../store";
+import Separator from "../styled/Separator";
 import DragItem from "../util/DragItem";
 import DragList from "../util/DragList";
 
@@ -76,6 +77,8 @@ export default function SideBar() {
 			>
 				Meta
 			</TabLink>
+
+			<Separator />
 
 			<DragList
 				DragDropContextProps={{

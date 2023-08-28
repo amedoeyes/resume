@@ -57,7 +57,7 @@ const editorSlice = createSlice({
 	name: "editor",
 	initialState,
 	reducers: {
-		setEditorResume: (state, action: PayloadAction<Resume>) => {
+		setEditor: (state, action: PayloadAction<Resume>) => {
 			state = action.payload;
 			return state;
 		},
@@ -90,7 +90,7 @@ const editorSlice = createSlice({
 export default editorSlice.reducer;
 
 export const {
-	setEditorResume,
+	setEditor,
 	setHeader,
 	setMeta,
 	setSection,

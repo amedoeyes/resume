@@ -7,18 +7,18 @@ export default function ResizeHandle() {
 	const handleMouseUp = () => setIsResizing(false);
 
 	useEffect(() => {
-		const handle = document.getElementById("resize-handle");
-		const editor = document.getElementById("editor");
-		const viewer = document.getElementById("viewer");
+		const resizeHandle = document.getElementById("resize-handle");
+		const leftPanel = document.getElementById("left-panel");
+		const rightPanel = document.getElementById("right-panel");
 
 		const EDITOR_MIN_WIDTH = 750;
 		const VIEWER_MIN_WIDTH = 550;
 
-		if (!handle || !editor || !viewer) return;
+		if (!resizeHandle || !leftPanel || !rightPanel) return;
 
 		const moveHandle = () => {
-			const editorWidth = editor.getBoundingClientRect().width;
-			handle.style.left = `${editorWidth - 4}px`;
+			const editorWidth = leftPanel.getBoundingClientRect().width;
+			resizeHandle.style.left = `${editorWidth - 4}px`;
 		};
 
 		moveHandle();
@@ -27,8 +27,8 @@ export default function ResizeHandle() {
 			if (!isResizing) return;
 
 			const { clientX } = e;
-			const editorWidth = editor.getBoundingClientRect().width;
-			const viewerWidth = viewer.getBoundingClientRect().width;
+			const editorWidth = leftPanel.getBoundingClientRect().width;
+			const viewerWidth = rightPanel.getBoundingClientRect().width;
 			const documentWidth = document.body.getBoundingClientRect().width;
 
 			if (editorWidth <= EDITOR_MIN_WIDTH && clientX < editorWidth)
@@ -40,8 +40,8 @@ export default function ResizeHandle() {
 			)
 				return;
 
-			editor.style.width = `${clientX}px`;
-			viewer.style.width = `${documentWidth - clientX}px`;
+			leftPanel.style.width = `${clientX}px`;
+			rightPanel.style.width = `${documentWidth - clientX}px`;
 			moveHandle();
 		};
 

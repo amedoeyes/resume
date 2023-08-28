@@ -3,7 +3,7 @@ import {
 	DraggableProps,
 	DraggingStyle,
 	NotDraggingStyle,
-} from "react-beautiful-dnd";
+} from "@hello-pangea/dnd";
 
 type DragItemProps = {
 	DraggableProps: Omit<Omit<DraggableProps, "children">, "draggableId">;

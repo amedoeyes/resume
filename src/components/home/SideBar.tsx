@@ -1,7 +1,7 @@
+import { DropResult } from "@hello-pangea/dnd";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { DropResult } from "react-beautiful-dnd";
 import { useDispatch, useSelector } from "react-redux";
 import { setSectionsOrder } from "../../features/editor/editorSlice";
 import { AppDispatch, RootState } from "../../store";
@@ -17,9 +17,9 @@ type TabLinkProps = {
 
 function TabLink(props: TabLinkProps) {
 	return (
-		<div className="flex w-full select-none overflow-hidden rounded-md bg-secondary text-center text-sm uppercase">
+		<div className="flex h-8 w-full select-none overflow-hidden rounded-md bg-secondary text-center text-sm uppercase">
 			<Link
-				className={`w-full bg-primary p-1 transition duration-200 ${
+				className={`flex h-full w-full items-center justify-center bg-primary p-1 transition duration-200 ${
 					props.isSelected && !props.isDragging
 						? "text-secondary"
 						: "bg-opacity-5 hover:bg-opacity-10"

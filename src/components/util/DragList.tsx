@@ -3,7 +3,7 @@ import {
 	DragDropContextProps,
 	Droppable,
 	DroppableProps,
-} from "react-beautiful-dnd";
+} from "@hello-pangea/dnd";
 
 type DragListProps = {
 	DragDropContextProps: Omit<DragDropContextProps, "children">;

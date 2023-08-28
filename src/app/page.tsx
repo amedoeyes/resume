@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/components/home/Header";
 import { setEditorResume } from "@/features/editor/editorSlice";
 import { setResume } from "@/features/resume/resumeSlice";
 import { AppDispatch } from "@/store";
@@ -22,5 +23,9 @@ export default function Home() {
 
 	if (loading) return <>Loading...</>;
 
-	return <main></main>;
+	return (
+		<main>
+			<Header />
+		</main>
+	);
 }

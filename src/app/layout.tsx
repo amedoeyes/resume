@@ -3,7 +3,7 @@ import "./globals.css";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
-	title: "Resume",
+	title: "Résumé",
 	description: "Web app to create Resumes",
 };
 

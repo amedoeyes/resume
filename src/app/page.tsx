@@ -1,5 +1,6 @@
 "use client";
 
+import Editor from "@/components/editor/Editor";
 import ResizeHandle from "@/components/home/ResizeHandle";
 import SideBar from "@/components/home/SideBar";
 import { setEditor } from "@/features/editor/editorSlice";
@@ -26,13 +27,16 @@ export default function Create() {
 
 	return (
 		<main className="relative flex h-screen">
-			<div id="left-panel" className="h-full w-2/3">
-				<div className="h-full w-36 border-r border-r-primary border-opacity-25 p-2">
+			<div id="left-panel" className="flex h-full w-2/3 flex-shrink-0">
+				<div className="w-36 border-r border-r-primary border-opacity-25 p-2">
 					<SideBar />
+				</div>
+				<div className="w-full overflow-y-auto p-2">
+					<Editor />
 				</div>
 			</div>
 			<ResizeHandle />
-			<div id="right-panel" className="h-full w-2/5"></div>
+			<div id="right-panel" className="h-full w-2/5 flex-grow"></div>
 		</main>
 	);
 }

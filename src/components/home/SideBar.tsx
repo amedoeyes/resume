@@ -37,7 +37,7 @@ export default function SideBar() {
 	const { sectionsOrder } = useSelector((state: RootState) => state.editor);
 	const dispatch = useDispatch<AppDispatch>();
 	const searchParams = useSearchParams();
-	const selectedSection = searchParams.get("section") || "header";
+	const selectedForm = searchParams.get("form") || "header";
 	const [isDragging, setIsDragging] = useState(false);
 
 	const handleDragStart = () => {
@@ -64,16 +64,16 @@ export default function SideBar() {
 
 			<TabLink
 				isDragging={isDragging}
-				isSelected={selectedSection === "header"}
-				link="?section=header"
+				isSelected={selectedForm === "header"}
+				link="?form=header"
 			>
 				Header
 			</TabLink>
 
 			<TabLink
 				isDragging={isDragging}
-				isSelected={selectedSection === "meta"}
-				link="?section=meta"
+				isSelected={selectedForm === "meta"}
+				link="?form=meta"
 			>
 				Meta
 			</TabLink>
@@ -91,8 +91,8 @@ export default function SideBar() {
 					<DragItem key={i} DraggableProps={{ index: i }} handle>
 						<TabLink
 							isDragging={isDragging}
-							isSelected={section === selectedSection}
-							link={"?section=" + section}
+							isSelected={section === selectedForm}
+							link={"?form=" + section}
 						>
 							{section}
 						</TabLink>

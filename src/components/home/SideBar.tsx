@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSectionsOrder } from "../../features/editor/editorSlice";
 import { AppDispatch, RootState } from "../../store";
+import DragHandle from "../styled/DragHandle";
 import Separator from "../styled/Separator";
 import DragItem from "../util/DragItem";
 import DragList from "../util/DragList";
@@ -57,38 +58,46 @@ export default function SideBar() {
 	};
 
 	return (
-		<div className="flex flex-col gap-2">
+		<div>
 			<h2 className="select-none p-2 text-center text-2xl font-medium">
 				<Link href="/">Résumé</Link>
 			</h2>
 
-			<TabLink
-				isDragging={isDragging}
-				isSelected={selectedForm === "header"}
-				link="?form=header"
-			>
-				Header
-			</TabLink>
+			<div className="flex flex-col gap-2">
+				<TabLink
+					isDragging={isDragging}
+					isSelected={selectedForm === "header"}
+					link="?form=header"
+				>
+					Header
+				</TabLink>
 
-			<TabLink
-				isDragging={isDragging}
-				isSelected={selectedForm === "meta"}
-				link="?form=meta"
-			>
-				Meta
-			</TabLink>
+				<TabLink
+					isDragging={isDragging}
+					isSelected={selectedForm === "meta"}
+					link="?form=meta"
+				>
+					Meta
+				</TabLink>
+			</div>
 
-			<Separator />
+			<Separator className="mt-2" />
 
 			<DragList
 				DragDropContextProps={{
 					onDragStart: handleDragStart,
 					onDragEnd: handleDragEnd,
 				}}
-				containerProps={{ className: "flex flex-col gap-2" }}
 			>
 				{sectionsOrder.map((section, i) => (
-					<DragItem key={i} DraggableProps={{ index: i }} handle>
+					<DragItem
+						key={i}
+						HandleElement={DragHandle}
+						DraggableProps={{ index: i }}
+						containerProps={{
+							className: "flex gap-2 mt-2",
+						}}
+					>
 						<TabLink
 							isDragging={isDragging}
 							isSelected={section === selectedForm}

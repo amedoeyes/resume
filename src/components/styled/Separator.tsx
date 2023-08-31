@@ -10,10 +10,10 @@ export default function Separator(props: SeparatorProps) {
 
 	return (
 		<div
+			{...props}
 			className={`rounded-full bg-primary bg-opacity-25 ${
 				variants[props.variant || "horizontal"]
 			} ${props.className || ""}`}
-			{...props}
 		></div>
 	);
 }

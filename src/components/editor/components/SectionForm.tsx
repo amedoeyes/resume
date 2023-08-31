@@ -1,4 +1,5 @@
 import Button from "@/components/styled/Button";
+import DragHandle from "@/components/styled/DragHandle";
 import Input from "@/components/styled/Input";
 import Separator from "@/components/styled/Separator";
 import DragItem from "@/components/util/DragItem";
@@ -93,7 +94,7 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 				{props.title}
 			</h3>
 
-			<form className="flex flex-col gap-4">
+			<form className="flex flex-col">
 				<Input
 					id="title"
 					name="title"
@@ -102,17 +103,17 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 					onChange={handleChange}
 				/>
 
-				<Separator />
+				<Separator className="mt-4" />
 
-				<DragList
-					DragDropContextProps={{ onDragEnd: handleDragEnd }}
-					containerProps={{ className: "flex flex-col gap-4" }}
-				>
+				<DragList DragDropContextProps={{ onDragEnd: handleDragEnd }}>
 					{formValues.items.map((item, index) => (
 						<DragItem
 							key={index}
+							HandleElement={DragHandle}
 							DraggableProps={{ index: index }}
-							handle
+							containerProps={{
+								className: "flex gap-2 mt-4",
+							}}
 						>
 							<div className="flex w-full flex-col gap-4 rounded-md border border-primary border-opacity-25 bg-secondary p-2">
 								{props.render(index, item, handleChange)}
@@ -123,7 +124,11 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 					))}
 				</DragList>
 
-				<Button type="button" onClick={handleAdd}>
+				{props.values.items.length > 0 && (
+					<Separator className="mt-4" />
+				)}
+
+				<Button className="mt-4" type="button" onClick={handleAdd}>
 					Add
 				</Button>
 			</form>

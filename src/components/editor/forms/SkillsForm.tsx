@@ -23,7 +23,7 @@ export default function SkillsForm() {
 		) => void,
 	) => {
 		return (
-			<div className="flex flex-col gap-4">
+			<>
 				<Input
 					className="w-full"
 					id={`items[${index}].title`}
@@ -38,7 +38,7 @@ export default function SkillsForm() {
 					value={item.skills.join("\n")}
 					onChange={handleChange}
 				/>
-			</div>
+			</>
 		);
 	};
 

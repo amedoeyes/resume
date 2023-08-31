@@ -20,7 +20,7 @@ export default function TextArea({
 	});
 
 	return (
-		<div className={`relative ${className}`}>
+		<div className={`relative flex ${className}`}>
 			<textarea
 				ref={textAreaRef}
 				className="peer w-full resize-none appearance-none overflow-hidden rounded-md border-2 border-primary border-opacity-25 bg-secondary p-2 outline-none transition-[border-color] duration-200 hover:border-opacity-50 focus:border-opacity-100"

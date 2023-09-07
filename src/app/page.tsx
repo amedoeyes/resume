@@ -3,6 +3,7 @@
 import Editor from "@/components/editor/Editor";
 import ResizeHandle from "@/components/home/ResizeHandle";
 import SideBar from "@/components/home/SideBar";
+import Viewer from "@/components/viewer/Viewer";
 import { setEditor } from "@/features/editor/editorSlice";
 import { setResume } from "@/features/resume/resumeSlice";
 import { AppDispatch } from "@/store";
@@ -36,7 +37,12 @@ export default function Create() {
 				</div>
 			</div>
 			<ResizeHandle />
-			<div id="right-panel" className="h-full w-2/5 flex-grow"></div>
+			<div
+				id="right-panel"
+				className="h-full w-2/5 flex-grow overflow-auto"
+			>
+				<Viewer />
+			</div>
 		</main>
 	);
 }

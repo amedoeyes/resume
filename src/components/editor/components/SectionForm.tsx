@@ -4,9 +4,12 @@ import Input from "@/components/styled/Input";
 import Separator from "@/components/styled/Separator";
 import DragItem from "@/components/util/DragItem";
 import DragList from "@/components/util/DragList";
+import { setResume } from "@/features/resume/resumeSlice";
+import { AppDispatch, RootState } from "@/store";
 import { Section } from "@/types";
 import { DropResult } from "@hello-pangea/dnd";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import DeleteItem from "./DeleteItem";
 
 type SectionFormProps<T> = {
@@ -24,6 +27,8 @@ type SectionFormProps<T> = {
 };
 
 export default function SectionForm<T>(props: SectionFormProps<T>) {
+	const editor = useSelector((state: RootState) => state.editor);
+	const dispatch = useDispatch<AppDispatch>();
 	const [formValues, setFormValues] = useState(props.values);
 
 	const handleDragEnd = (result: DropResult) => {
@@ -88,13 +93,18 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 		props.onUpdate(updatedValues);
 	};
 
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		dispatch(setResume(editor));
+	};
+
 	return (
 		<div>
 			<h3 className="my-6 text-center text-2xl font-bold uppercase">
 				{props.title}
 			</h3>
 
-			<form className="flex flex-col">
+			<form className="flex flex-col" onSubmit={handleSubmit}>
 				<Input
 					id="title"
 					name="title"

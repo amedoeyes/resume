@@ -1,14 +1,15 @@
 import Input from "@/components/styled/Input";
 import TextArea from "@/components/styled/TextArea";
 import { setHeader } from "@/features/editor/editorSlice";
+import { setResume } from "@/features/resume/resumeSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function HeaderForm() {
-	const { header } = useSelector((state: RootState) => state.editor);
+	const editor = useSelector((state: RootState) => state.editor);
 	const dispatch = useDispatch<AppDispatch>();
-	const [formValues, setFormValues] = useState(header);
+	const [formValues, setFormValues] = useState(editor.header);
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -28,12 +29,18 @@ export default function HeaderForm() {
 		}
 	};
 
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		dispatch(setResume(editor));
+	};
+
 	return (
 		<div className="w-full">
 			<h3 className="my-6 text-center text-2xl font-bold uppercase">
 				Header
 			</h3>
-			<form className="flex flex-col gap-4">
+
+			<form className="flex flex-col gap-4" onSubmit={handleSubmit}>
 				<div className="flex items-center gap-2">
 					<Input
 						className="w-full"

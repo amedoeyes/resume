@@ -1,3 +1,4 @@
+import { setResume } from "@/features/resume/resumeSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMeta } from "../../../features/editor/editorSlice";
@@ -5,9 +6,9 @@ import { AppDispatch, RootState } from "../../../store";
 import Input from "../../styled/Input";
 
 export default function MetaForm() {
-	const { meta } = useSelector((state: RootState) => state.editor);
+	const editor = useSelector((state: RootState) => state.editor);
 	const dispatch = useDispatch<AppDispatch>();
-	const [formValues, setFormValues] = useState(meta);
+	const [formValues, setFormValues] = useState(editor.meta);
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -19,12 +20,18 @@ export default function MetaForm() {
 		dispatch(setMeta(newValues));
 	};
 
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		dispatch(setResume(editor));
+	};
+
 	return (
 		<div className="w-full">
 			<h3 className="my-6 text-center text-2xl font-bold uppercase">
 				Meta
 			</h3>
-			<form className="flex flex-col gap-4">
+
+			<form className="flex flex-col gap-4" onSubmit={handleSubmit}>
 				<Input
 					className="w-full"
 					id="title"

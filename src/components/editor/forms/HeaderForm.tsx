@@ -29,18 +29,20 @@ export default function HeaderForm() {
 		}
 	};
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		dispatch(setResume(editor));
+	const handleKeydown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+		if (e.key === "Enter") {
+			console.log("updating");
+			dispatch(setResume(editor));
+		}
 	};
 
 	return (
-		<div className="w-full">
+		<>
 			<h3 className="my-6 text-center text-2xl font-bold uppercase">
 				Header
 			</h3>
 
-			<form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+			<form className="flex flex-col gap-4" onKeyDown={handleKeydown}>
 				<div className="flex items-center gap-2">
 					<Input
 						className="w-full"
@@ -81,6 +83,6 @@ export default function HeaderForm() {
 					onChange={handleChange}
 				/>
 			</form>
-		</div>
+		</>
 	);
 }

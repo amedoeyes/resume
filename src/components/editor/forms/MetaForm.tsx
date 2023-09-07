@@ -20,18 +20,20 @@ export default function MetaForm() {
 		dispatch(setMeta(newValues));
 	};
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		dispatch(setResume(editor));
+	const handleKeydown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+		if (e.key === "Enter") {
+			console.log("updating");
+			dispatch(setResume(editor));
+		}
 	};
 
 	return (
-		<div className="w-full">
+		<>
 			<h3 className="my-6 text-center text-2xl font-bold uppercase">
 				Meta
 			</h3>
 
-			<form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+			<form className="flex flex-col gap-4" onKeyDown={handleKeydown}>
 				<Input
 					className="w-full"
 					id="title"
@@ -63,6 +65,6 @@ export default function MetaForm() {
 					onChange={handleChange}
 				/>
 			</form>
-		</div>
+		</>
 	);
 }

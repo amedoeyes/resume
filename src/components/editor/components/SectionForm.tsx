@@ -93,18 +93,20 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 		props.onUpdate(updatedValues);
 	};
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		dispatch(setResume(editor));
+	const handleKeydown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+		if (e.key === "Enter") {
+			console.log("updating");
+			dispatch(setResume(editor));
+		}
 	};
 
 	return (
-		<div>
+		<>
 			<h3 className="my-6 text-center text-2xl font-bold uppercase">
 				{props.title}
 			</h3>
 
-			<form className="flex flex-col" onSubmit={handleSubmit}>
+			<form className="flex flex-col" onKeyDown={handleKeydown}>
 				<Input
 					id="title"
 					name="title"
@@ -142,6 +144,6 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 					Add
 				</Button>
 			</form>
-		</div>
+		</>
 	);
 }

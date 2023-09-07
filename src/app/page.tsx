@@ -32,11 +32,14 @@ export default function Create() {
 				<div className="w-36 border-r border-r-primary border-opacity-25 p-2">
 					<SideBar />
 				</div>
+
 				<div className="w-full overflow-y-auto p-2">
 					<Editor />
 				</div>
 			</div>
+
 			<ResizeHandle />
+
 			<div
 				id="right-panel"
 				className="h-full w-2/5 flex-grow overflow-auto"

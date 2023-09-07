@@ -1,14 +1,18 @@
+import Resume from "@/components/resume/Resume";
 import Button from "@/components/styled/Button";
-import Link from "next/link";
+import { RootState } from "@/store";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import { useSelector } from "react-redux";
 
-type DownloadButtonProps = {
-	url: string;
-};
+export default function DownloadButton() {
+	const resume = useSelector((state: RootState) => state.resume);
 
-export default function DownloadButton(props: DownloadButtonProps) {
 	return (
-		<Link href={props.url} target="_blank" download>
+		<PDFDownloadLink
+			document={<Resume {...resume} />}
+			fileName={resume.meta.title + ".pdf"}
+		>
 			<Button>Download</Button>
-		</Link>
+		</PDFDownloadLink>
 	);
 }

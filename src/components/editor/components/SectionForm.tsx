@@ -4,9 +4,9 @@ import Input from "@/components/styled/Input";
 import Separator from "@/components/styled/Separator";
 import DragItem from "@/components/util/DragItem";
 import DragList from "@/components/util/DragList";
-import { setResume } from "@/features/resume/resumeSlice";
+import { setResume } from "@/slices/resumeSlice";
 import { AppDispatch, RootState } from "@/store";
-import { Section } from "@/types";
+import { ISection } from "@/types";
 import { DropResult } from "@hello-pangea/dnd";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,9 +14,9 @@ import DeleteItem from "./DeleteItem";
 
 type SectionFormProps<T> = {
 	title: string;
-	values: Section<T>;
+	values: ISection<T>;
 	toAdd: T;
-	onUpdate: (updatedValues: Section<T>) => void;
+	onUpdate: (updatedValues: ISection<T>) => void;
 	render: (
 		index: number,
 		item: T,
@@ -93,12 +93,11 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 		props.onUpdate(updatedValues);
 	};
 
-	const handleKeydown = (e: React.KeyboardEvent<HTMLFormElement>) => {
-		if (e.key === "Enter") {
-			console.log("updating");
-			dispatch(setResume(editor));
-		}
-	};
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+
+		dispatch(setResume(editor));
+	}
 
 	return (
 		<>
@@ -106,7 +105,7 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 				{props.title}
 			</h3>
 
-			<form className="flex flex-col" onKeyDown={handleKeydown}>
+			<form className="flex flex-col" onSubmit={handleSubmit}>
 				<Input
 					id="title"
 					name="title"
@@ -140,10 +139,12 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 					<Separator className="mt-4" />
 				)}
 
-				<Button className="mt-4" type="button" onClick={handleAdd}>
-					Add
-				</Button>
+				<input type="submit" hidden />
 			</form>
+
+			<Button className="mt-4 w-full" type="button" onClick={handleAdd}>
+				Add
+			</Button>
 		</>
 	);
 }

@@ -1,5 +1,5 @@
 import Button from "@/components/styled/Button";
-import { setResume } from "@/features/resume/resumeSlice";
+import { setResume } from "@/slices/resumeSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useDispatch, useSelector } from "react-redux";
 

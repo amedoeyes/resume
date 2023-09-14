@@ -1,41 +1,41 @@
-import { setSection } from "@/features/editor/editorSlice";
-import { EducationItem, Section } from "@/types";
+import Input from "@/components/styled/Input";
+import { setSection } from "@/slices/editorSlice";
+import { AppDispatch, RootState } from "@/store";
+import { ICertificatesItem, ISection } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../store";
-import Input from "../../styled/Input";
-import SectionForm from "../components/SectionForm";
+import SectionForm from "../SectionForm";
 
-export default function EducationForm() {
-	const { education } = useSelector(
+export default function CertificatesForm() {
+	const { certificates } = useSelector(
 		(state: RootState) => state.editor.sections,
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
-	const toAdd: EducationItem = {
+	const toAdd: ICertificatesItem = {
 		title: "",
 		institution: "",
-		gpa: "",
+		id: "",
 		startDate: "",
 		endDate: "",
 	};
 
 	const render = (
 		index: number,
-		item: EducationItem,
+		item: ICertificatesItem,
 		handleChange: (
 			e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 		) => void,
 	) => {
 		return (
 			<>
-				<Input
-					className="w-full"
-					id={`items[${index}].title`}
-					label="Title"
-					value={item.title}
-					onChange={handleChange}
-				/>
 				<div className="flex gap-4">
+					<Input
+						className="w-full"
+						id={`items[${index}].title`}
+						label="Title"
+						value={item.title}
+						onChange={handleChange}
+					/>
 					<Input
 						className="w-full"
 						id={`items[${index}].institution`}
@@ -43,14 +43,14 @@ export default function EducationForm() {
 						value={item.institution}
 						onChange={handleChange}
 					/>
-					<Input
-						className="w-full"
-						id={`items[${index}].gpa`}
-						label="GPA"
-						value={item.gpa}
-						onChange={handleChange}
-					/>
 				</div>
+				<Input
+					className="w-full"
+					id={`items[${index}].id`}
+					label="Id"
+					value={item.id}
+					onChange={handleChange}
+				/>
 				<div className="flex gap-4">
 					<Input
 						className="w-full"
@@ -71,14 +71,14 @@ export default function EducationForm() {
 		);
 	};
 
-	const handleUpdate = (updatedValues: Section<EducationItem>) => {
-		dispatch(setSection({ section: "education", data: updatedValues }));
+	const handleUpdate = (updatedValues: ISection<ICertificatesItem>) => {
+		dispatch(setSection({ section: "certificates", data: updatedValues }));
 	};
 
 	return (
 		<SectionForm
-			title="Education"
-			values={education}
+			title="Certificates"
+			values={certificates}
 			toAdd={toAdd}
 			render={render}
 			onUpdate={handleUpdate}

@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import editorReducer from "./features/editor/editorSlice";
-import resumeReducer from "./features/resume/resumeSlice";
+import resumeSlice from "./slices/resumeSlice";
+import editorSlice from "./slices/editorSlice";
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 const store = configureStore({
 	reducer: {
-		resume: resumeReducer,
-		editor: editorReducer,
+		resume: resumeSlice.reducer,
+		editor: editorSlice.reducer,
 	},
 });
 

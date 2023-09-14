@@ -1,7 +1,8 @@
-import { Resume } from "@/types";
+import example from "@/example";
+import { IResume } from "@/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState: Resume = {
+const initialState: IResume = {
 	header: {
 		firstName: "",
 		lastName: "",
@@ -50,7 +51,7 @@ const resumeSlice = createSlice({
 	name: "resume",
 	initialState,
 	reducers: {
-		setResume: (state, action: PayloadAction<Resume>) => {
+		setResume: (state, action: PayloadAction<IResume>) => {
 			state = action.payload;
 			window.localStorage.setItem("resume", JSON.stringify(state));
 			return state;
@@ -58,5 +59,5 @@ const resumeSlice = createSlice({
 	},
 });
 
-export default resumeSlice.reducer;
 export const { setResume } = resumeSlice.actions;
+export default resumeSlice;

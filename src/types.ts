@@ -1,59 +1,59 @@
-export type Header = {
+export interface IHeader {
 	firstName: string;
 	lastName: string;
 	email: string;
 	phone: string;
 	links: string[];
-};
+}
 
-export type Meta = {
+export interface IMeta {
 	title: string;
 	author: string;
 	subject: string;
 	keywords: string;
-};
+}
 
-export type ExperienceItem = {
+export interface IExperienceItem {
 	title: string;
 	description: string[];
 	company: string;
 	startDate: string;
 	endDate: string;
-};
+}
 
-export type SkillsItem = {
+export interface ISkillsItem {
 	title: string;
 	skills: string[];
-};
+}
 
-export type ProjectsItem = {
+export interface IProjectsItem {
 	title: string;
 	description: string[];
 	startDate: string;
 	endDate: string;
-};
+}
 
-export type CertificatesItem = {
+export interface ICertificatesItem {
 	title: string;
 	institution: string;
 	id: string;
 	startDate: string;
 	endDate: string;
-};
+}
 
-export type EducationItem = {
+export interface IEducationItem {
 	title: string;
 	institution: string;
 	gpa: string;
 	startDate: string;
 	endDate: string;
-};
+}
 
-export type Section<T> = {
+export interface ISection<T> {
 	title: string;
 	items: T[];
 	[key: string]: any;
-};
+}
 
 export type SectionsOrder = (
 	| "experience"
@@ -63,17 +63,17 @@ export type SectionsOrder = (
 	| "education"
 )[];
 
-export type Sections = {
-	experience: Section<ExperienceItem>;
-	skills: Section<SkillsItem>;
-	projects: Section<ProjectsItem>;
-	certificates: Section<CertificatesItem>;
-	education: Section<EducationItem>;
-};
+export interface ISections {
+	experience: ISection<IExperienceItem>;
+	skills: ISection<ISkillsItem>;
+	projects: ISection<IProjectsItem>;
+	certificates: ISection<ICertificatesItem>;
+	education: ISection<IEducationItem>;
+}
 
-export type Resume = {
-	header: Header;
-	meta: Meta;
-	sections: Sections;
+export interface IResume {
+	header: IHeader;
+	meta: IMeta;
+	sections: ISections;
 	sectionsOrder: SectionsOrder;
-};
+}

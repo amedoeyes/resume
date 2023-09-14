@@ -4,8 +4,8 @@ import Editor from "@/components/editor/Editor";
 import ResizeHandle from "@/components/home/ResizeHandle";
 import SideBar from "@/components/home/SideBar";
 import Viewer from "@/components/viewer/Viewer";
-import { setEditor } from "@/features/editor/editorSlice";
-import { setResume } from "@/features/resume/resumeSlice";
+import { setEditor } from "@/slices/editorSlice";
+import { setResume } from "@/slices/resumeSlice";
 import { AppDispatch } from "@/store";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -42,7 +42,7 @@ export default function Create() {
 
 			<div
 				id="right-panel"
-				className="h-full w-2/5 flex-grow overflow-auto"
+				className="h-full w-2/5 flex-grow overflow-hidden"
 			>
 				<Viewer />
 			</div>

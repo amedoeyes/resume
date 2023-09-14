@@ -17,16 +17,18 @@ export default function Viewer() {
 				return (
 					<>
 						<ViewerHeader />
-						<Document file={blob} loading="" noData="">
-							<Page
-								className="w-full !bg-secondary [&>canvas]:!h-auto [&>canvas]:!w-full"
-								pageNumber={1}
-								scale={2}
-								loading=""
-								renderTextLayer={false}
-								renderAnnotationLayer={false}
-							/>
-						</Document>
+						<div className="h-full overflow-y-auto">
+							<Document file={blob} loading="" noData="">
+								<Page
+									className="w-full !bg-secondary [&>canvas]:!h-auto [&>canvas]:!w-full"
+									pageNumber={1}
+									scale={2}
+									loading=""
+									renderTextLayer={false}
+									renderAnnotationLayer={false}
+								/>
+							</Document>
+						</div>
 					</>
 				);
 			}}

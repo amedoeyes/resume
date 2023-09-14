@@ -1,7 +1,7 @@
 import Input from "@/components/styled/Input";
 import TextArea from "@/components/styled/TextArea";
-import { setHeader } from "@/features/editor/editorSlice";
-import { setResume } from "@/features/resume/resumeSlice";
+import { setHeader } from "@/slices/editorSlice";
+import { setResume } from "@/slices/resumeSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,11 +29,10 @@ export default function HeaderForm() {
 		}
 	};
 
-	const handleKeydown = (e: React.KeyboardEvent<HTMLFormElement>) => {
-		if (e.key === "Enter") {
-			console.log("updating");
-			dispatch(setResume(editor));
-		}
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+
+		dispatch(setResume(editor));
 	};
 
 	return (
@@ -42,7 +41,7 @@ export default function HeaderForm() {
 				Header
 			</h3>
 
-			<form className="flex flex-col gap-4" onKeyDown={handleKeydown}>
+			<form className="flex flex-col gap-4" onSubmit={handleSubmit}>
 				<div className="flex items-center gap-2">
 					<Input
 						className="w-full"
@@ -82,6 +81,8 @@ export default function HeaderForm() {
 					value={formValues.links.join("\n")}
 					onChange={handleChange}
 				/>
+
+				<input type="submit" hidden />
 			</form>
 		</>
 	);

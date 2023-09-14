@@ -1,14 +1,14 @@
+import { AppDispatch, RootState } from "@/store";
 import { DropResult } from "@hello-pangea/dnd";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSectionsOrder } from "../../features/editor/editorSlice";
-import { AppDispatch, RootState } from "../../store";
 import DragHandle from "../styled/DragHandle";
 import Separator from "../styled/Separator";
 import DragItem from "../util/DragItem";
 import DragList from "../util/DragList";
+import { setSectionsOrder } from "@/slices/editorSlice";
 
 type TabLinkProps = {
 	link: string;

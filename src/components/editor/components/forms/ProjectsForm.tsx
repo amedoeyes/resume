@@ -1,20 +1,19 @@
-import { setSection } from "@/features/editor/editorSlice";
+import Input from "@/components/styled/Input";
+import TextArea from "@/components/styled/TextArea";
+import { setSection } from "@/slices/editorSlice";
+import { AppDispatch, RootState } from "@/store";
+import { IProjectsItem, ISection } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../store";
-import { ExperienceItem, Section } from "../../../types";
-import Input from "../../styled/Input";
-import TextArea from "../../styled/TextArea";
-import SectionForm from "../components/SectionForm";
+import SectionForm from "../SectionForm";
 
-export default function ExperienceForm() {
-	const { experience } = useSelector(
+export default function ProjectsForm() {
+	const { projects } = useSelector(
 		(state: RootState) => state.editor.sections,
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
-	const toAdd: ExperienceItem = {
+	const toAdd: IProjectsItem = {
 		title: "",
-		company: "",
 		startDate: "",
 		endDate: "",
 		description: [],
@@ -22,7 +21,7 @@ export default function ExperienceForm() {
 
 	const render = (
 		index: number,
-		item: ExperienceItem,
+		item: IProjectsItem,
 		handleChange: (
 			e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 		) => void,
@@ -35,13 +34,6 @@ export default function ExperienceForm() {
 						id={`items[${index}].title`}
 						label="Title"
 						value={item.title}
-						onChange={handleChange}
-					/>
-					<Input
-						className="w-full"
-						id={`items[${index}].company`}
-						label="Company"
-						value={item.company}
 						onChange={handleChange}
 					/>
 				</div>
@@ -72,14 +64,14 @@ export default function ExperienceForm() {
 		);
 	};
 
-	const handleUpdate = (updatedValues: Section<ExperienceItem>) => {
-		dispatch(setSection({ section: "experience", data: updatedValues }));
+	const handleUpdate = (updatedValues: ISection<IProjectsItem>) => {
+		dispatch(setSection({ section: "projects", data: updatedValues }));
 	};
 
 	return (
 		<SectionForm
-			title="Experience"
-			values={experience}
+			title="Projects"
+			values={projects}
 			toAdd={toAdd}
 			render={render}
 			onUpdate={handleUpdate}

@@ -1,9 +1,9 @@
-import { setResume } from "@/features/resume/resumeSlice";
+import Input from "@/components/styled/Input";
+import { setMeta } from "@/slices/editorSlice";
+import { setResume } from "@/slices/resumeSlice";
+import { AppDispatch, RootState } from "@/store";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMeta } from "../../../features/editor/editorSlice";
-import { AppDispatch, RootState } from "../../../store";
-import Input from "../../styled/Input";
 
 export default function MetaForm() {
 	const editor = useSelector((state: RootState) => state.editor);
@@ -20,11 +20,11 @@ export default function MetaForm() {
 		dispatch(setMeta(newValues));
 	};
 
-	const handleKeydown = (e: React.KeyboardEvent<HTMLFormElement>) => {
-		if (e.key === "Enter") {
-			console.log("updating");
-			dispatch(setResume(editor));
-		}
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+
+		console.log(editor.meta);
+		dispatch(setResume(editor));
 	};
 
 	return (
@@ -33,7 +33,7 @@ export default function MetaForm() {
 				Meta
 			</h3>
 
-			<form className="flex flex-col gap-4" onKeyDown={handleKeydown}>
+			<form className="flex flex-col gap-4" onSubmit={handleSubmit}>
 				<Input
 					className="w-full"
 					id="title"
@@ -64,6 +64,8 @@ export default function MetaForm() {
 					value={formValues.keywords}
 					onChange={handleChange}
 				/>
+
+				<input type="submit" hidden />
 			</form>
 		</>
 	);

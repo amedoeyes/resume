@@ -1,23 +1,23 @@
-import { setSection } from "@/features/editor/editorSlice";
+import Input from "@/components/styled/Input";
+import TextArea from "@/components/styled/TextArea";
+import { setSection } from "@/slices/editorSlice";
+import { AppDispatch, RootState } from "@/store";
+import { ISection, ISkillsItem } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../store";
-import { Section, SkillsItem } from "../../../types";
-import Input from "../../styled/Input";
-import TextArea from "../../styled/TextArea";
-import SectionForm from "../components/SectionForm";
+import SectionForm from "../SectionForm";
 
 export default function SkillsForm() {
 	const { skills } = useSelector((state: RootState) => state.editor.sections);
 	const dispatch = useDispatch<AppDispatch>();
 
-	const toAdd: SkillsItem = {
+	const toAdd: ISkillsItem = {
 		title: "",
 		skills: [],
 	};
 
 	const render = (
 		index: number,
-		item: SkillsItem,
+		item: ISkillsItem,
 		handleChange: (
 			e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 		) => void,
@@ -42,7 +42,7 @@ export default function SkillsForm() {
 		);
 	};
 
-	const handleUpdate = (updatedValues: Section<SkillsItem>) => {
+	const handleUpdate = (updatedValues: ISection<ISkillsItem>) => {
 		dispatch(setSection({ section: "skills", data: updatedValues }));
 	};
 

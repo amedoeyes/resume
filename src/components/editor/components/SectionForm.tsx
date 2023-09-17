@@ -11,6 +11,7 @@ import { DropResult } from "@hello-pangea/dnd";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DeleteItem from "./DeleteItem";
+import { PlusIcon } from "@heroicons/react/24/outline";
 
 type SectionFormProps<T> = {
 	title: string;
@@ -97,7 +98,7 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 		e.preventDefault();
 
 		dispatch(setResume(editor));
-	}
+	};
 
 	return (
 		<>
@@ -143,7 +144,7 @@ export default function SectionForm<T>(props: SectionFormProps<T>) {
 			</form>
 
 			<Button className="mt-4 w-full" type="button" onClick={handleAdd}>
-				Add
+				<PlusIcon className="h-5 w-5" /> Add
 			</Button>
 		</>
 	);

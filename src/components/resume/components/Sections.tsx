@@ -1,12 +1,12 @@
 import { ISections, SectionsOrder } from "@/types";
 import { View } from "@react-pdf/renderer";
+import { Fragment } from "react";
 import styles from "../styles";
 import CertificatesSection from "./sections/CertificatesSection";
 import EducationSection from "./sections/EducationSection";
 import ExperienceSection from "./sections/ExperienceSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import SkillsSection from "./sections/SkillsSection";
-import { Fragment } from "react";
 
 type SectionsProps = {
 	sections: ISections;
@@ -25,9 +25,9 @@ export default function Sections(props: SectionsProps) {
 	return (
 		<View style={styles.sections}>
 			{props.order.map((section, i) =>
-				props.sections[section].items.length === 0
-					? null
-					: <Fragment key={i}>{sections[section]}</Fragment>,
+				props.sections[section].items.length === 0 ? null : (
+					<Fragment key={i}>{sections[section]}</Fragment>
+				),
 			)}
 		</View>
 	);

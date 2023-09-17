@@ -1,9 +1,10 @@
 "use client";
 
 import Editor from "@/components/editor/Editor";
+import Header from "@/components/home/Header";
 import ResizeHandle from "@/components/home/ResizeHandle";
-import SideBar from "@/components/home/SideBar";
-import Viewer from "@/components/viewer/Viewer";
+import ResponsiveSideBar from "@/components/home/ResponsiveSideBar";
+import ResponsiveViewer from "@/components/home/ResponsiveViewer";
 import { setEditor } from "@/slices/editorSlice";
 import { setResume } from "@/slices/resumeSlice";
 import { AppDispatch } from "@/store";
@@ -24,28 +25,52 @@ export default function Create() {
 		}
 	}, [dispatch]);
 
-	if (loading) return <>Loading...</>;
+	if (loading)
+		return (
+			<div className="flex h-screen w-full select-none flex-col items-center justify-center gap-4">
+				<svg
+					className="h-20 w-20 animate-spin text-white"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+				>
+					<circle
+						className="opacity-25"
+						cx="12"
+						cy="12"
+						r="10"
+						stroke="currentColor"
+						strokeWidth="4"
+					></circle>
+					<path
+						className="opacity-75"
+						fill="currentColor"
+						d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+					></path>
+				</svg>
+				<span className="text-2xl">Loading</span>
+			</div>
+		);
 
 	return (
-		<main className="relative flex h-screen">
-			<div id="left-panel" className="flex h-full w-2/3 flex-shrink-0">
-				<div className="w-36 border-r border-r-primary border-opacity-25 p-2">
-					<SideBar />
+		<>
+			<Header />
+			<main className="flex">
+				<div
+					id="left-panel"
+					className="flex h-full w-2/3 flex-shrink-0 max-md:w-full"
+				>
+					<ResponsiveSideBar />
+
+					<div className="h-screen w-full overflow-auto p-2">
+						<Editor />
+					</div>
 				</div>
 
-				<div className="w-full overflow-y-auto p-2">
-					<Editor />
-				</div>
-			</div>
+				<ResizeHandle />
 
-			<ResizeHandle />
-
-			<div
-				id="right-panel"
-				className="h-full w-2/5 flex-grow overflow-hidden"
-			>
-				<Viewer />
-			</div>
-		</main>
+				<ResponsiveViewer />
+			</main>
+		</>
 	);
 }

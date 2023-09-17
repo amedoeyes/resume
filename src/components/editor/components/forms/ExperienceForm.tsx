@@ -1,10 +1,10 @@
 import Input from "@/components/styled/Input";
+import TextArea from "@/components/styled/TextArea";
 import { setSection } from "@/slices/editorSlice";
 import { AppDispatch, RootState } from "@/store";
 import { IExperienceItem, ISection } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
 import SectionForm from "../SectionForm";
-import TextArea from "@/components/styled/TextArea";
 
 export default function ExperienceForm() {
 	const { experience } = useSelector(

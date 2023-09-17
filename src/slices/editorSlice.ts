@@ -9,54 +9,10 @@ import {
 } from "@/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState: IResume = {
-	header: {
-		firstName: "",
-		lastName: "",
-		email: "",
-		phone: "",
-		links: [],
-	},
-	meta: {
-		title: "Resume",
-		author: "",
-		subject: "Resume",
-		keywords: "Resume",
-	},
-	sections: {
-		experience: {
-			title: "",
-			items: [],
-		},
-		skills: {
-			title: "",
-			items: [],
-		},
-		projects: {
-			title: "",
-			items: [],
-		},
-		certificates: {
-			title: "",
-			items: [],
-		},
-		education: {
-			title: "",
-			items: [],
-		},
-	},
-	sectionsOrder: [
-		"experience",
-		"skills",
-		"projects",
-		"certificates",
-		"education",
-	],
-};
 
 const editorSlice = createSlice({
 	name: "editor",
-	initialState,
+	initialState: example,
 	reducers: {
 		setEditor: (state, action: PayloadAction<IResume>) => {
 			state = action.payload;
@@ -87,7 +43,6 @@ const editorSlice = createSlice({
 		},
 	},
 });
-
 
 export const { setEditor, setHeader, setMeta, setSection, setSectionsOrder } =
 	editorSlice.actions;

@@ -20,7 +20,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html suppressHydrationWarning lang="en" className={roboto.className}>
-			<body className="bg-secondary text-primary">
+			<body className="bg-secondary overflow-hidden text-primary">
 				<Providers>{children}</Providers>
 			</body>
 		</html>

@@ -1,6 +1,7 @@
 import Button from "@/components/styled/Button";
 import { setResume } from "@/slices/resumeSlice";
 import { AppDispatch, RootState } from "@/store";
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function UpdateButton() {
@@ -11,5 +12,9 @@ export default function UpdateButton() {
 		dispatch(setResume(editor));
 	};
 
-	return <Button onClick={updateResume}>Update</Button>;
+	return (
+		<Button onClick={updateResume}>
+			<ArrowPathIcon className="h-5 w-5" /> Update
+		</Button>
+	);
 }

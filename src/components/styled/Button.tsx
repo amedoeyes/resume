@@ -15,7 +15,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 		return (
 			<button
 				ref={ref}
-				className={`rounded-md p-1 uppercase outline-none duration-300 ${variantClassName[variant]} ${className}`}
+				className={`flex justify-center gap-1 rounded-md p-2 text-sm uppercase outline-none duration-300 ${variantClassName[variant]} ${className}`}
 				{...rest}
 			>
 				{children}

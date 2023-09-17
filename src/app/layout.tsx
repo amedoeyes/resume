@@ -10,7 +10,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
 	title: "Résumé",
-	description: "Web app to create Resumes",
+	description: "Online tool for crafting professional resumes",
 };
 
 type RootLayoutProps = {
@@ -20,7 +20,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html suppressHydrationWarning lang="en" className={roboto.className}>
-			<body className="bg-secondary overflow-hidden text-primary">
+			<body className="overflow-hidden bg-secondary text-primary">
 				<Providers>{children}</Providers>
 			</body>
 		</html>

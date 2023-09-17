@@ -17,7 +17,7 @@ export default function Viewer() {
 				return (
 					<>
 						<ViewerHeader />
-						<div className="h-full overflow-y-auto">
+						<div className="h-[calc(100vh-4rem)] overflow-y-auto">
 							<Document file={blob} loading="" noData="">
 								<Page
 									className="w-full !bg-secondary [&>canvas]:!h-auto [&>canvas]:!w-full"

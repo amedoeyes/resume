@@ -14,21 +14,19 @@ export default function ResponsiveViewer() {
 		<>
 			<div
 				id="right-panel"
-				className="h-full w-1/2 flex-grow overflow-hidden max-md:hidden"
+				className="w-1/2 flex-grow max-md:hidden"
 			>
 				<Viewer />
 			</div>
 
-			<div className="hidden max-md:block">
-				<Modal
-					className="hidden max-md:block"
-					open={modals.viewer}
-					direction="right"
-					onClose={handleClose}
-				>
-					<Viewer />
-				</Modal>
-			</div>
+			<Modal
+				className="hidden max-md:block"
+				open={modals.viewer}
+				direction="right"
+				onClose={handleClose}
+			>
+				<Viewer />
+			</Modal>
 		</>
 	);
 }

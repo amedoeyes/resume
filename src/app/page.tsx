@@ -5,6 +5,7 @@ import Header from "@/components/home/Header";
 import ResizeHandle from "@/components/home/ResizeHandle";
 import ResponsiveSideBar from "@/components/home/ResponsiveSideBar";
 import ResponsiveViewer from "@/components/home/ResponsiveViewer";
+import Settings from "@/components/settings/Settings";
 import { setEditor } from "@/slices/editorSlice";
 import { setResume } from "@/slices/resumeSlice";
 import { AppDispatch } from "@/store";
@@ -29,7 +30,7 @@ export default function Create() {
 		return (
 			<div className="flex h-screen w-full select-none flex-col items-center justify-center gap-4">
 				<svg
-					className="h-20 w-20 animate-spin text-white"
+					className="h-20 w-20 animate-spin text-primary"
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
 					viewBox="0 0 24 24"
@@ -58,7 +59,7 @@ export default function Create() {
 			<main className="flex">
 				<div
 					id="left-panel"
-					className="flex h-full w-2/3 flex-shrink-0 max-md:w-full"
+					className="flex h-full w-1/2 flex-shrink-0 max-md:w-full"
 				>
 					<ResponsiveSideBar />
 
@@ -70,6 +71,8 @@ export default function Create() {
 				<ResizeHandle />
 
 				<ResponsiveViewer />
+
+				<Settings />
 			</main>
 		</>
 	);

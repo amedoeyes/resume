@@ -1,9 +1,10 @@
+import Button from "@/components/styled/Button";
 import DragHandle from "@/components/styled/DragHandle";
 import Separator from "@/components/styled/Separator";
 import DragItem from "@/components/util/DragItem";
 import DragList from "@/components/util/DragList";
 import { setSectionsOrder } from "@/slices/editorSlice";
-import { closeModal } from "@/slices/modalsSlice";
+import { closeModal, openModal } from "@/slices/modalsSlice";
 import { AppDispatch, RootState } from "@/store";
 import { DropResult } from "@hello-pangea/dnd";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
@@ -60,6 +61,11 @@ export default function SideBar() {
 	};
 
 	const handleClose = () => dispatch(closeModal("sideBar"));
+	const handleOpenSettings = () => {
+		dispatch(closeModal("sideBar"));
+		dispatch(openModal("settings"));
+
+	};
 
 	return (
 		<div className="w-full">
@@ -70,6 +76,7 @@ export default function SideBar() {
 				>
 					<ArrowLeftIcon className="h-6 w-6" />
 				</button>
+
 				<h2 className="select-none p-2 text-2xl font-medium">Résumé</h2>
 			</div>
 
@@ -119,6 +126,15 @@ export default function SideBar() {
 						</DragItem>
 					))}
 				</DragList>
+
+				<Separator className="mt-2 max-md:mt-4" />
+
+				<Button
+					className="mt-2 w-full max-md:mt-4"
+					onClick={handleOpenSettings}
+				>
+					Settings
+				</Button>
 			</div>
 		</div>
 	);

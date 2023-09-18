@@ -8,7 +8,7 @@ export default function SelectTheme() {
 	};
 
 	return (
-		<div className="flex justify-between">
+		<div className="flex items-center justify-between">
 			<p className="select-none text-lg">Select Theme</p>
 
 			<select

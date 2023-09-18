@@ -63,7 +63,7 @@ export default function Create() {
 				>
 					<ResponsiveSideBar />
 
-					<div className="h-[calc(100vh-4rem)] w-full overflow-auto p-2">
+					<div className="w-full h-screen overflow-auto p-2 max-md:h-[calc(100vh-4rem)]">
 						<Editor />
 					</div>
 				</div>

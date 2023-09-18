@@ -30,16 +30,22 @@ export default function Modal(props: ModalProps) {
 	};
 
 	return (
-		<Transition as={Fragment} show={props.open}>
-			<Dialog className={`fixed inset-0 z-50 ${props.className && props.className}`} onClose={props.onClose}>
-				<Transition.Child
-					as={Fragment}
-					{...transition[props.direction || "left"]}
-				>
-					<Dialog.Panel className="h-full w-full bg-secondary">
-						{props.children}
-					</Dialog.Panel>
-				</Transition.Child>
+		<Transition
+			as={Fragment}
+			show={props.open}
+			unmount={false}
+			{...transition[props.direction || "left"]}
+		>
+			<Dialog
+				className={`fixed inset-0 z-50 ${
+					props.className && props.className
+				}`}
+				onClose={props.onClose}
+				unmount={false}
+			>
+				<Dialog.Panel className="h-full w-full bg-secondary">
+					{props.children}
+				</Dialog.Panel>
 			</Dialog>
 		</Transition>
 	);

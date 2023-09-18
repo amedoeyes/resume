@@ -8,13 +8,11 @@ export default function ResponsiveSideBar() {
 	const modals = useSelector((state: RootState) => state.modals);
 	const dispatch = useDispatch<AppDispatch>();
 
-	const handleClose = () => {
-		dispatch(closeModal("sideBar"));
-	};
+	const handleClose = () => dispatch(closeModal("sideBar"));
 
 	return (
 		<>
-			<div className="w-36 border-r border-r-primary border-opacity-25 max-md:hidden">
+			<div className="w-52 border-r border-r-primary border-opacity-25 max-md:hidden">
 				<SideBar />
 			</div>
 

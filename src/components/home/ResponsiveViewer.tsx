@@ -12,10 +12,7 @@ export default function ResponsiveViewer() {
 
 	return (
 		<>
-			<div
-				id="right-panel"
-				className="w-1/2 flex-grow max-md:hidden"
-			>
+			<div id="right-panel" className="w-1/2 flex-grow max-md:hidden">
 				<Viewer />
 			</div>
 

@@ -12,7 +12,10 @@ export default function OpenButton() {
 
 	return (
 		<Link href={pdf[0].url || ""} target="_blank">
-			<Button><ArrowTopRightOnSquareIcon className="h-5 w-5" /> Open</Button>
+			<Button aria-label="Open">
+				<ArrowTopRightOnSquareIcon className="h-5 w-5" />
+				<span className="max-md:hidden">Open</span>
+			</Button>
 		</Link>
 	);
 }

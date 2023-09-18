@@ -14,7 +14,7 @@ export default function Settings() {
 	return (
 		<Modal open={modals.settings} onClose={handleClose}>
 			<div className="mb-2 flex h-16 items-center border-b border-b-primary border-opacity-25 p-4">
-				<button onClick={handleClose}>
+				<button className="p-2" onClick={handleClose} >
 					<ArrowLeftIcon className="h-6 w-6" />
 				</button>
 

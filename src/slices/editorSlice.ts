@@ -9,7 +9,6 @@ import {
 } from "@/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-
 const editorSlice = createSlice({
 	name: "editor",
 	initialState: example,

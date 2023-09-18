@@ -13,8 +13,9 @@ export default function DownloadButton() {
 			document={<Resume {...resume} />}
 			fileName={resume.meta.title + ".pdf"}
 		>
-			<Button>
-				<ArrowDownTrayIcon className="h-5 w-5" /> Download
+			<Button aria-label="Download">
+				<ArrowDownTrayIcon className="h-5 w-5" />
+				<span className="max-md:hidden">Download</span>
 			</Button>
 		</PDFDownloadLink>
 	);

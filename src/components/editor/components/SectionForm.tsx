@@ -8,10 +8,10 @@ import { setResume } from "@/slices/resumeSlice";
 import { AppDispatch, RootState } from "@/store";
 import { ISection } from "@/types";
 import { DropResult } from "@hello-pangea/dnd";
+import { PlusIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DeleteItem from "./DeleteItem";
-import { PlusIcon } from "@heroicons/react/24/outline";
 
 type SectionFormProps<T> = {
 	title: string;

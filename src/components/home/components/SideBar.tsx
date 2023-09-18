@@ -7,7 +7,7 @@ import { setSectionsOrder } from "@/slices/editorSlice";
 import { closeModal, openModal } from "@/slices/modalsSlice";
 import { AppDispatch, RootState } from "@/store";
 import { DropResult } from "@hello-pangea/dnd";
-import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, Cog6ToothIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -64,7 +64,6 @@ export default function SideBar() {
 	const handleOpenSettings = () => {
 		dispatch(closeModal("sideBar"));
 		dispatch(openModal("settings"));
-
 	};
 
 	return (
@@ -73,15 +72,22 @@ export default function SideBar() {
 				<button
 					className="hidden p-2 max-md:block"
 					onClick={handleClose}
+					aria-label="Close"
 				>
 					<ArrowLeftIcon className="h-6 w-6" />
 				</button>
 
-				<h2 className="select-none p-2 text-2xl font-medium">Résumé</h2>
+				<h2 className="select-none p-2 text-2xl font-medium max-md:hidden">
+					Résumé
+				</h2>
+
+				<h2 className="hidden select-none p-2 text-2xl font-medium max-md:block">
+					Sidebar
+				</h2>
 			</div>
 
-			<div className="p-2 max-md:p-4">
-				<div className="flex flex-col gap-2 max-md:gap-4">
+			<div className="px-2">
+				<div className="flex flex-col gap-2">
 					<TabLink
 						isDragging={isDragging}
 						isSelected={selectedForm === "header"}
@@ -99,7 +105,7 @@ export default function SideBar() {
 					</TabLink>
 				</div>
 
-				<Separator className="mt-2 max-md:mt-4" />
+				<Separator className="mt-2" />
 
 				<DragList
 					DragDropContextProps={{
@@ -113,7 +119,7 @@ export default function SideBar() {
 							HandleElement={DragHandle}
 							DraggableProps={{ index: i }}
 							containerProps={{
-								className: "flex gap-2 mt-2 max-md:mt-4",
+								className: "flex gap-2 mt-2",
 							}}
 						>
 							<TabLink
@@ -127,13 +133,13 @@ export default function SideBar() {
 					))}
 				</DragList>
 
-				<Separator className="mt-2 max-md:mt-4" />
+				<Separator className="mt-2 " />
 
 				<Button
-					className="mt-2 w-full max-md:mt-4"
+					className="mt-2 w-full "
 					onClick={handleOpenSettings}
 				>
-					Settings
+					<Cog6ToothIcon className="h-5 w-5" /> Settings
 				</Button>
 			</div>
 		</div>

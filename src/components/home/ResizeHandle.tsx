@@ -59,7 +59,7 @@ export default function ResizeHandle() {
 	return (
 		<span
 			id="resize-handle"
-			className="absolute z-50 flex h-full w-2 cursor-ew-resize select-none justify-center max-md:hidden"
+			className="absolute z-20 flex h-full w-2 cursor-ew-resize select-none justify-center max-md:hidden"
 			onMouseDown={handleMouseDown}
 			onMouseUp={handleMouseUp}
 		>

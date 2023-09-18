@@ -13,8 +13,9 @@ export default function UpdateButton() {
 	};
 
 	return (
-		<Button onClick={updateResume}>
-			<ArrowPathIcon className="h-5 w-5" /> Update
+		<Button onClick={updateResume} aria-label="Update">
+			<ArrowPathIcon className="h-5 w-5" />
+			<span className="max-md:hidden">Update</span>
 		</Button>
 	);
 }

@@ -1,10 +1,6 @@
 import { openModal } from "@/slices/modalsSlice";
 import { AppDispatch } from "@/store";
-import {
-	ArrowLeftIcon,
-	Bars3Icon,
-	DocumentIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, DocumentIcon } from "@heroicons/react/24/outline";
 import { useDispatch } from "react-redux";
 
 export default function Header() {

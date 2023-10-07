@@ -56,6 +56,7 @@ export default function Create() {
 	return (
 		<>
 			<Header />
+
 			<main className="flex">
 				<div
 					id="left-panel"
@@ -63,7 +64,7 @@ export default function Create() {
 				>
 					<ResponsiveSideBar />
 
-					<div className="w-full h-screen overflow-auto p-2 max-md:h-[calc(100vh-4rem)]">
+					<div className="h-screen w-full overflow-auto p-2 max-md:h-[calc(100vh-4rem)]">
 						<Editor />
 					</div>
 				</div>
